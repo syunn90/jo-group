@@ -1,10 +1,10 @@
-package com.jo.auth;
+package com.jo.joauth;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class AuthApplicationTests {
+class JoAuthApplicationTests {
 
     @Test
     void contextLoads() {
