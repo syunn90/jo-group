@@ -1,8 +1,12 @@
 package com.jo.joauth.controller;
 
+import com.jo.api.feign.TestService;
+import com.jo.common.util.R;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
 
 /**
  * @author xtc
@@ -13,14 +17,17 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
 
 
+    @Resource
+    private TestService service;
+
     @GetMapping
-    public String test(){
-        return "hello world";
+    public R test(){
+        return service.info();
     }
 }
 
 // 授权链接，不可以用localhost，需要用ip
-// http://127.0.0.1:1001/oauth2/authorize?client_id=client&response_type=code&scope=read&redirect_uri=http://127.0.0.1:8080/hello
+// http://127.0.0.1:1001/oauth2/authorize?client_id=client&response_type=code&scope=read&redirect_uri=http://127.0.0.1:1001/hello
 
 
 // 获取token 链接

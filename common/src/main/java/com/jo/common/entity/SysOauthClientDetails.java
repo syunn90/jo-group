@@ -59,7 +59,7 @@ public class SysOauthClientDetails extends Model<SysOauthClientDetails> {
 	 * 授权方式[A,B,C]
 	 */
 	@Schema(description = "授权方式")
-	private String authorizedGrantTypes;
+	private String[] authorizedGrantTypes;
 
 	/**
 	 * 回调地址

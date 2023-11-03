@@ -1,8 +1,8 @@
 server:
-  port: 1001
+  port: 1002
 spring:
   application:
-    name: jo-auth
+    name: biz
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root

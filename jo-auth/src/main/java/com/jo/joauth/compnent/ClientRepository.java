@@ -5,10 +5,10 @@ import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.jo.common.entity.SysOauthClientDetails;
 import com.jo.common.service.SysOauthClientDetailsService;
+import com.jo.common.util.R;
+import com.jo.common.util.RetOps;
 import com.jo.joauth.constants.SecurityConstants;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.oauth2.core.AuthorizationGrantType;
 import org.springframework.security.oauth2.core.ClientAuthenticationMethod;
@@ -19,10 +19,7 @@ import org.springframework.security.oauth2.server.authorization.client.Registere
 import org.springframework.security.oauth2.server.authorization.settings.ClientSettings;
 import org.springframework.security.oauth2.server.authorization.settings.OAuth2TokenFormat;
 import org.springframework.security.oauth2.server.authorization.settings.TokenSettings;
-import com.jo.common.util.R;
-import com.jo.common.util.RetOps;
 
-import javax.annotation.Resource;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.Optional;
@@ -91,9 +88,9 @@ public class ClientRepository implements RegisteredClientRepository {
                 .clientSecret(SecurityConstants.NOOP + clientDetails.getClientSecret())
                 .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC);
 
-//        for (String authorizedGrantType : clientDetails.getAuthorizedGrantTypes()) {
-            builder.authorizationGrantType(new AuthorizationGrantType(clientDetails.getAuthorizedGrantTypes()));
-//        }
+        for (String authorizedGrantType : clientDetails.getAuthorizedGrantTypes()) {
+            builder.authorizationGrantType(new AuthorizationGrantType(authorizedGrantType));
+        }
 
         // 回调地址
         Optional.ofNullable(clientDetails.getWebServerRedirectUri())
