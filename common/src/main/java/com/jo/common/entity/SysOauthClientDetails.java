@@ -6,7 +6,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import javax.validation.constraints.NotBlank;
+//import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 
 /**
@@ -31,14 +31,14 @@ public class SysOauthClientDetails extends Model<SysOauthClientDetails> {
 	/**
 	 * 客户端ID
 	 */
-	@NotBlank(message = "client_id 不能为空")
+//	@NotBlank(message = "client_id 不能为空")
 	@Schema(description = "客户端id")
 	private String clientId;
 
 	/**
 	 * 客户端密钥
 	 */
-	@NotBlank(message = "client_secret 不能为空")
+//	@NotBlank(message = "client_secret 不能为空")
 	@Schema(description = "客户端密钥")
 	private String clientSecret;
 
@@ -51,7 +51,7 @@ public class SysOauthClientDetails extends Model<SysOauthClientDetails> {
 	/**
 	 * 作用域
 	 */
-	@NotBlank(message = "scope 不能为空")
+//	@NotBlank(message = "scope 不能为空")
 	@Schema(description = "作用域")
 	private String scope;
 
