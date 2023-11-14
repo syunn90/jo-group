@@ -28,11 +28,7 @@
             <artifactId>javax.servlet-api</artifactId>
             <version>3.1.0</version>
         </dependency>
-        <dependency>
-            <groupId>com.mysql</groupId>
-            <artifactId>mysql-connector-j</artifactId>
-            <version>8.0.33</version>
-        </dependency>
+
         <dependency>
             <groupId>com.jo</groupId>
             <artifactId>common</artifactId>
@@ -43,11 +39,6 @@
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>${mybatis-plus.version}</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.security</groupId>-->
-<!--            <artifactId>spring-security-oauth2-jose</artifactId>-->
-<!--            <version>9.24.4</version>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>com.jo</groupId>
             <artifactId>api</artifactId>

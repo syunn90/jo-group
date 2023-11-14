@@ -29,9 +29,7 @@ import java.util.function.Predicate;
  *        .peek();
  * </pre>
  *
- * @author CJ (power4j@outlook.com)
- * @date 2022/5/12
- * @since 4.4
+ * @author Jo
  */
 public class RetOps<T> {
 

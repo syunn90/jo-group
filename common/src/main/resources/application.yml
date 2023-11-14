@@ -1,26 +1,17 @@
-server:
-  port: 1001
 spring:
-  application:
-    name: jo-auth
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: root
     url: jdbc:mysql://localhost:3306/local
-  cloud:
-    nacos:
-      config:
-        server-addr: 192.168.50.6:8849
-        group: DEFAULT_GROUP
-        file-extension: yml
-      discovery:
-        server-addr: 192.168.50.6:8849
-      username: nacos
-      password: nacos
-  config:
-    import:
-      - nacos:application.yml
+  redis:
+    host: 39.106.166.224
+    password: 123456
+    port: 29553
+    database: 3
+  profiles:
+    include: config
+
 mybatis-plus:
   mapper-locations: classpath*:/mapper/**/*Mapper.xml
   configuration:

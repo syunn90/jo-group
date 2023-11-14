@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestHeader;
  * @author xtc
  * @date 2023/11/3
  */
-@FeignClient(contextId = "testService", value= "biz")
+@FeignClient(contextId = "userService", value= "biz")
 public interface RemoteUserService {
 
     /**

@@ -3,7 +3,6 @@ package com.jo.common.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.jo.common.entity.SysOauthClientDetails;
 import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Repository;
 
 /**
  * <p>

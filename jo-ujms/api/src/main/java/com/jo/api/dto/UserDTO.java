@@ -8,8 +8,7 @@ import lombok.EqualsAndHashCode;
 import java.util.List;
 
 /**
- * @author lengleng
- * @date 2017/11/5
+ * @author Jo
  */
 @Data
 @Schema(description = "系统用户传输对象")

@@ -1,8 +1,8 @@
 package com.jo.common.constant;
 
 /**
- * @author lengleng
- * @date 2019/2/1
+ * @author Jo
+ * @date 2023/2/1
  */
 public interface SecurityConstants {
 

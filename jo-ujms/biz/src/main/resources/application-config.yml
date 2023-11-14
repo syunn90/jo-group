@@ -1,0 +1,17 @@
+server:
+  port: 1002
+spring:
+  application:
+    name: biz
+  cloud:
+    nacos:
+      config:
+        server-addr: 192.168.50.6:8849
+        group: DEFAULT_GROUP
+        file-extension: yml
+        import-check:
+          enabled: false
+      discovery:
+        server-addr: 192.168.50.6:8849
+      username: nacos
+      password: nacos

@@ -3,8 +3,7 @@ package com.jo.common.exception;
 /**
  * 错误编码
  *
- * @author lengleng
- * @date 2022/3/30
+ * @author Jo
  */
 public interface ErrorCodes {
 

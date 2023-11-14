@@ -43,7 +43,8 @@ public class SysUserController {
                 .eq(StrUtil.isNotBlank(username), SysUser::getUsername, username)
                 .eq(StrUtil.isNotBlank(phone), SysUser::getPhone, phone));
         if (user == null) {
-            return R.failed(MsgUtils.getMessage(ErrorCodes.SYS_USER_USERINFO_EMPTY, username));
+//            return R.failed(MsgUtils.getMessage(ErrorCodes.SYS_USER_USERINFO_EMPTY, username));
+            return R.failed("Failed", username);
         }
         return R.ok(userService.findUserInfo(user));
     }
