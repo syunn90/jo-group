@@ -2,11 +2,9 @@ package com.jo.joauth.compnent;
 
 import cn.hutool.core.util.BooleanUtil;
 import cn.hutool.core.util.StrUtil;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.jo.api.feign.RemoteClientService;
 import com.jo.common.constant.SecurityConstants;
-import com.jo.common.entity.SysOauthClientDetails;
-import com.jo.common.service.SysOauthClientDetailsService;
-import com.jo.common.util.R;
+import com.jo.api.entity.SysOauthClientDetails;
 import com.jo.common.util.RetOps;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -32,7 +30,7 @@ import java.util.Optional;
 @EnableWebSecurity
 public class ClientRepository implements RegisteredClientRepository {
 
-    private final SysOauthClientDetailsService oauthClientDetailsService;
+    private final RemoteClientService remoteClientService;
 
     /**
      * 刷新令牌有效期默认 30 天
@@ -78,7 +76,7 @@ public class ClientRepository implements RegisteredClientRepository {
     @Override
     public RegisteredClient findByClientId(String clientId) {
         SysOauthClientDetails clientDetails = RetOps
-                .of(R.ok(oauthClientDetailsService.getOne(Wrappers.<SysOauthClientDetails>lambdaQuery().eq(SysOauthClientDetails::getClientId, clientId))))
+                .of(remoteClientService.getClientDetailsById(clientId, SecurityConstants.FROM_IN))
                 .getData()
                 .orElseThrow(() -> new OAuth2AuthorizationCodeRequestAuthenticationException(
                         new OAuth2Error("客户端查询异常，请检查数据库链接"), null));

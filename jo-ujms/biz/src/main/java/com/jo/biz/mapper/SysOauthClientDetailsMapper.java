@@ -1,7 +1,7 @@
-package com.jo.common.mapper;
+package com.jo.biz.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.jo.common.entity.SysOauthClientDetails;
+import com.jo.api.entity.SysOauthClientDetails;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

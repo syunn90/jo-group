@@ -27,5 +27,11 @@
             <artifactId>common</artifactId>
             <version>1.0</version>
         </dependency>
+        <!-- web模块-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
     </dependencies>
 </project>

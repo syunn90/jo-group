@@ -8,54 +8,27 @@ import com.jo.joauth.support.core.CustomeOAuth2TokenCustomizer;
 import com.jo.joauth.support.core.JoDaoAuthenticationProvider;
 import com.jo.joauth.support.password.OAuth2ResourceOwnerPasswordAuthenticationConverter;
 import com.jo.joauth.support.password.OAuth2ResourceOwnerPasswordAuthenticationProvider;
-import com.nimbusds.jose.jwk.JWKSet;
-import com.nimbusds.jose.jwk.RSAKey;
-import com.nimbusds.jose.jwk.source.ImmutableJWKSet;
-import com.nimbusds.jose.jwk.source.JWKSource;
-import com.nimbusds.jose.proc.SecurityContext;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configurers.oauth2.server.resource.OAuth2ResourceServerConfigurer;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.oauth2.core.AuthorizationGrantType;
-import org.springframework.security.oauth2.core.ClientAuthenticationMethod;
-import org.springframework.security.oauth2.core.oidc.OidcScopes;
-import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.security.oauth2.server.authorization.OAuth2AuthorizationService;
-import org.springframework.security.oauth2.server.authorization.client.InMemoryRegisteredClientRepository;
-import org.springframework.security.oauth2.server.authorization.client.JdbcRegisteredClientRepository;
-import org.springframework.security.oauth2.server.authorization.client.RegisteredClient;
-import org.springframework.security.oauth2.server.authorization.client.RegisteredClientRepository;
 import org.springframework.security.oauth2.server.authorization.config.annotation.web.configuration.OAuth2AuthorizationServerConfiguration;
 import org.springframework.security.oauth2.server.authorization.config.annotation.web.configurers.OAuth2AuthorizationServerConfigurer;
 import org.springframework.security.oauth2.server.authorization.settings.AuthorizationServerSettings;
-import org.springframework.security.oauth2.server.authorization.settings.ClientSettings;
 import org.springframework.security.oauth2.server.authorization.token.DelegatingOAuth2TokenGenerator;
 import org.springframework.security.oauth2.server.authorization.token.OAuth2RefreshTokenGenerator;
 import org.springframework.security.oauth2.server.authorization.token.OAuth2TokenGenerator;
 import org.springframework.security.oauth2.server.authorization.web.authentication.DelegatingAuthenticationConverter;
 import org.springframework.security.oauth2.server.authorization.web.authentication.OAuth2AuthorizationCodeRequestAuthenticationConverter;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.DefaultSecurityFilterChain;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.AuthenticationConverter;
-import org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint;
 
-import java.security.KeyPair;
-import java.security.KeyPairGenerator;
-import java.security.interfaces.RSAPrivateKey;
-import java.security.interfaces.RSAPublicKey;
 import java.util.Arrays;
-import java.util.UUID;
 
 
 /**
@@ -94,19 +67,10 @@ public class SecurityConfig {
             authorizationEndPoint.consentPage(SecurityConstants.CUSTOM_CONSENT_PAGE_URI);
         });
 
-//        http
-//                // Redirect to the login page when not authenticated from the
-//                // authorization endpoint
-//                .exceptionHandling((exceptions) -> exceptions
-//                        .authenticationEntryPoint(
-//                                new LoginUrlAuthenticationEntryPoint("/login"))
-//                );
-//                // Accept access tokens for User Info and/or Client Registration
-//                .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt);
         DefaultSecurityFilterChain securityFilterChain = authorizationServerConfigurer
                 .authorizationService(authorizationService)// redis存储token的实现
-//                .authorizationServerSettings(
-//                        AuthorizationServerSettings.builder().issuer(SecurityConstants.PROJECT_LICENSE).build())
+                .authorizationServerSettings(
+                        AuthorizationServerSettings.builder().build())
                 // 授权码登录的登录页个性化
                 .and()
 //                .apply(new  FormIdentityLoginConfigurer())
@@ -115,8 +79,6 @@ public class SecurityConfig {
 
         // 注入自定义授权模式实现
         addCustomOAuth2GrantAuthenticationProvider(http);
-
-
         return securityFilterChain;
     }
 
@@ -180,28 +142,28 @@ public class SecurityConfig {
 //        return new ImmutableJWKSet<>(jwkSet);
 //    }
 
-    private static KeyPair generateRsaKey() {
-        KeyPair keyPair;
-        try {
-            KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
-            keyPairGenerator.initialize(2048);
-            keyPair = keyPairGenerator.generateKeyPair();
-        }
-        catch (Exception ex) {
-            throw new IllegalStateException(ex);
-        }
-        return keyPair;
-    }
+//    private static KeyPair generateRsaKey() {
+//        KeyPair keyPair;
+//        try {
+//            KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
+//            keyPairGenerator.initialize(2048);
+//            keyPair = keyPairGenerator.generateKeyPair();
+//        }
+//        catch (Exception ex) {
+//            throw new IllegalStateException(ex);
+//        }
+//        return keyPair;
+//    }
 //
 //    @Bean
 //    public JwtDecoder jwtDecoder(JWKSource<SecurityContext> jwkSource) {
 //        return OAuth2AuthorizationServerConfiguration.jwtDecoder(jwkSource);
 //    }
 
-    @Bean
-    public AuthorizationServerSettings authorizationServerSettings() {
-        return AuthorizationServerSettings.builder().build();
-    }
+//    @Bean
+//    public AuthorizationServerSettings authorizationServerSettings() {
+//        return AuthorizationServerSettings.builder().build();
+//    }
 
     /**
      * request -> xToken 注入请求转换器
@@ -237,7 +199,7 @@ public class SecurityConfig {
     private void addCustomOAuth2GrantAuthenticationProvider(HttpSecurity http) {
         AuthenticationManager authenticationManager = http.getSharedObject(AuthenticationManager.class);
         OAuth2AuthorizationService authorizationService = http.getSharedObject(OAuth2AuthorizationService.class);
-
+        // 自定义账号密码登录模式
         OAuth2ResourceOwnerPasswordAuthenticationProvider resourceOwnerPasswordAuthenticationProvider =
                 new OAuth2ResourceOwnerPasswordAuthenticationProvider( authenticationManager, authorizationService, oAuth2TokenGenerator());
 

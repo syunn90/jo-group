@@ -1,11 +1,9 @@
-package com.jo.common.service.impl;
+package com.jo.biz.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.jo.common.entity.SysOauthClientDetails;
-import com.jo.common.mapper.SysOauthClientDetailsMapper;
-import com.jo.common.service.SysOauthClientDetailsService;
-import lombok.RequiredArgsConstructor;
-import org.springframework.context.annotation.Primary;
+import com.jo.biz.service.SysOauthClientDetailsService;
+import com.jo.api.entity.SysOauthClientDetails;
+import com.jo.biz.mapper.SysOauthClientDetailsMapper;
 import org.springframework.stereotype.Service;
 
 /**
@@ -16,8 +14,6 @@ import org.springframework.stereotype.Service;
  * @author Jo
  */
 @Service
-@Primary
-@RequiredArgsConstructor
 public class SysOauthClientDetailsServiceImpl extends ServiceImpl<SysOauthClientDetailsMapper, SysOauthClientDetails>
 		implements SysOauthClientDetailsService {
 

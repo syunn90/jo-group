@@ -1,4 +1,4 @@
-package com.jo.common.entity;
+package com.jo.api.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
 import com.baomidou.mybatisplus.extension.activerecord.Model;

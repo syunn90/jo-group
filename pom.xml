@@ -17,7 +17,7 @@
         <spring.alibaba.cloud.version>2021.0.5.0</spring.alibaba.cloud.version>
         <swagger.version>2.1.2</swagger.version>
         <jakarta.validation.version>2.0.2</jakarta.validation.version>
-        <hutools.version>5.7.9</hutools.version>
+        <hutools.version>5.8.21</hutools.version>
         <jackson-annotations.version>2.13.5</jackson-annotations.version>
         <spring-boot.version>2.7.16</spring-boot.version>
         <lombok.verison>1.18.30</lombok.verison>
@@ -30,7 +30,14 @@
         <module>common</module>
         <module>jo-ujms</module>
     </modules>
-
+    <dependencies>
+        <!--配置文件处理器-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
     <dependencyManagement>
         <dependencies>
             <dependency>

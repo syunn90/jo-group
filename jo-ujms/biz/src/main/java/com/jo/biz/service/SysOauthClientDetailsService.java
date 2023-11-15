@@ -1,8 +1,7 @@
-package com.jo.common.service;
+package com.jo.biz.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.jo.common.entity.SysOauthClientDetails;
-import org.springframework.context.annotation.Primary;
+import com.jo.api.entity.SysOauthClientDetails;
 
 /**
  * <p>
