@@ -20,7 +20,7 @@ spring:
         - id: auth-router
           uri: lb://auth
           predicates:
-            - Path=/oauth2/token
+            - Path=/auth/**
           filters:
             - PasswordDecoderFilter
       encode-key: 'thanks,pig4cloud'

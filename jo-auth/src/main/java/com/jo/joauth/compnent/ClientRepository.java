@@ -81,10 +81,17 @@ public class ClientRepository implements RegisteredClientRepository {
                 .orElseThrow(() -> new OAuth2AuthorizationCodeRequestAuthenticationException(
                         new OAuth2Error("客户端查询异常，请检查数据库链接"), null));
 
+        // basic认证，需要 client_id + ":" + client_secret 进行base64加密，放到请求头[Authorization]参数中
         RegisteredClient.Builder builder = RegisteredClient.withId(clientDetails.getClientId())
                 .clientId(clientDetails.getClientId())
                 .clientSecret(SecurityConstants.NOOP + clientDetails.getClientSecret())
                 .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC);
+
+        // post认证 需要在请求头中增加client_id和client_secret参数
+//        RegisteredClient.Builder builder = RegisteredClient.withId(clientDetails.getClientId())
+//        .clientId(clientDetails.getClientId())
+//        .clientSecret(SecurityConstants.NOOP + clientDetails.getClientSecret())
+//        .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_POST);
 
         for (String authorizedGrantType : clientDetails.getAuthorizedGrantTypes()) {
             builder.authorizationGrantType(new AuthorizationGrantType(authorizedGrantType));

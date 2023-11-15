@@ -20,7 +20,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.codec.HttpMessageReader;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.http.server.reactive.ServerHttpRequestDecorator;
-import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.BodyInserter;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.server.HandlerStrategies;
@@ -43,7 +42,6 @@ import java.util.function.Function;
  */
 @Slf4j
 @RequiredArgsConstructor
-@Component
 public class PasswordDecoderFilter extends AbstractGatewayFilterFactory {
 
     private static final List<HttpMessageReader<?>> messageReaders = HandlerStrategies.withDefaults().messageReaders();
