@@ -2,10 +2,10 @@ package com.jo.joauth.compnent;
 
 import cn.hutool.core.util.BooleanUtil;
 import cn.hutool.core.util.StrUtil;
-import com.jo.api.feign.RemoteClientService;
-import com.jo.common.constant.SecurityConstants;
 import com.jo.api.entity.SysOauthClientDetails;
-import com.jo.common.util.RetOps;
+import com.jo.api.feign.RemoteClientService;
+import com.jo.common.core.constant.SecurityConstants;
+import com.jo.common.core.util.RetOps;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.oauth2.core.AuthorizationGrantType;
@@ -87,7 +87,7 @@ public class ClientRepository implements RegisteredClientRepository {
                 .clientSecret(SecurityConstants.NOOP + clientDetails.getClientSecret())
                 .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC);
 
-        // post认证 需要在请求头中增加client_id和client_secret参数
+        // post认证 需要在请求头中透传client_id和client_secret
 //        RegisteredClient.Builder builder = RegisteredClient.withId(clientDetails.getClientId())
 //        .clientId(clientDetails.getClientId())
 //        .clientSecret(SecurityConstants.NOOP + clientDetails.getClientSecret())

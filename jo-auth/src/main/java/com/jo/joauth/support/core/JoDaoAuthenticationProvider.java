@@ -2,9 +2,9 @@ package com.jo.joauth.support.core;
 
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.spring.SpringUtil;
-import com.jo.common.constant.SecurityConstants;
-import com.jo.joauth.service.JoUserDetailService;
-import com.jo.joauth.util.WebUtils;
+import com.jo.common.core.constant.SecurityConstants;
+import com.jo.common.security.service.JoUserDetailService;
+import com.jo.common.core.util.WebUtils;
 import lombok.SneakyThrows;
 import org.springframework.core.Ordered;
 import org.springframework.security.authentication.BadCredentialsException;

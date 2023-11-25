@@ -1,7 +1,7 @@
 package com.jo.joauth.compnent;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jo.common.util.SpringContextHolder;
+import com.jo.common.core.util.SpringContextHolder;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.http.HttpOutputMessage;

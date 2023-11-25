@@ -1,7 +1,7 @@
 package com.jo.gateway.filter;
 
-import com.jo.common.constant.CommonConstants;
-import com.jo.common.constant.SecurityConstants;
+import com.jo.common.core.constant.CommonConstants;
+import com.jo.common.core.constant.SecurityConstants;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;

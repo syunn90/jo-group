@@ -1,6 +1,6 @@
 package com.jo.joauth.config;
 
-import com.jo.common.constant.SecurityConstants;
+import com.jo.common.core.constant.SecurityConstants;
 import com.jo.joauth.handler.JoAuthenticationFailureEventHandler;
 import com.jo.joauth.handler.JoAuthenticationSuccessEventHandler;
 import com.jo.joauth.support.CustomeOAuth2AccessTokenGenerator;

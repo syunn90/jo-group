@@ -15,3 +15,7 @@ spring:
         server-addr: 192.168.50.6:8849
       username: nacos
       password: nacos
+
+logging:
+  level:
+    org.springframework.security: TRACE

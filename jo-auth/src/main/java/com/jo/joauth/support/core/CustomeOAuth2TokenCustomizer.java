@@ -1,7 +1,7 @@
 package com.jo.joauth.support.core;
 
-import com.jo.common.constant.SecurityConstants;
-import com.jo.joauth.service.JoUser;
+import com.jo.common.core.constant.SecurityConstants;
+import com.jo.common.security.service.JoUser;
 import org.springframework.security.oauth2.server.authorization.token.OAuth2TokenClaimsContext;
 import org.springframework.security.oauth2.server.authorization.token.OAuth2TokenClaimsSet;
 import org.springframework.security.oauth2.server.authorization.token.OAuth2TokenCustomizer;

@@ -4,10 +4,9 @@ import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.jo.api.entity.SysUser;
 import com.jo.biz.service.SysUserService;
-import com.jo.common.annotation.Inner;
-import com.jo.common.exception.ErrorCodes;
-import com.jo.common.util.MsgUtils;
-import com.jo.common.util.R;
+import com.jo.common.core.util.R;
+import com.jo.common.security.annotation.Inner;
+import com.jo.common.security.util.SecurityUtils;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
@@ -37,7 +36,8 @@ public class SysUserController {
      */
     @Inner
     @GetMapping(value = { "/info/query" })
-    public R info(@RequestParam(required = false) String username, @RequestParam(required = false) String phone) {
+    public R info(@RequestParam(required = true) String username,
+                  @RequestParam(required = false) String phone) {
         SysUser user = userService.getOne(Wrappers.<SysUser>query()
                 .lambda()
                 .eq(StrUtil.isNotBlank(username), SysUser::getUsername, username)
@@ -45,6 +45,20 @@ public class SysUserController {
         if (user == null) {
 //            return R.failed(MsgUtils.getMessage(ErrorCodes.SYS_USER_USERINFO_EMPTY, username));
             return R.failed("Failed", username);
+        }
+        return R.ok(userService.findUserInfo(user));
+    }
+
+    /**
+     * 获取当前用户全部信息
+     * @return 用户信息
+     */
+    @GetMapping(value = { "/info" })
+    public R info() {
+        String username = SecurityUtils.getUser().getUsername();
+        SysUser user = userService.getOne(Wrappers.<SysUser>query().lambda().eq(SysUser::getUsername, username));
+        if (user == null) {
+            return R.failed("获取用户信息失败");
         }
         return R.ok(userService.findUserInfo(user));
     }

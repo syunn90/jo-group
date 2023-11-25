@@ -20,7 +20,7 @@ public class GatewayConfiguration {
     }
 
     @Bean
-    public RequestGlobalFilter pigRequestGlobalFilter() {
+    public RequestGlobalFilter requestGlobalFilter() {
         return new RequestGlobalFilter();
     }
 }

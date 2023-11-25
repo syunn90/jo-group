@@ -1,12 +1,9 @@
 package com.jo.joauth.handler;
 
 import cn.hutool.core.map.MapUtil;
-import cn.hutool.core.util.StrUtil;
-import com.jo.common.constant.CommonConstants;
-import com.jo.common.constant.SecurityConstants;
-import com.jo.common.util.SpringContextHolder;
+import com.jo.common.core.constant.SecurityConstants;
+import com.jo.common.security.service.JoUser;
 import com.jo.joauth.compnent.JoCustomOAuth2AccessTokenResponseHttpMessageConverter;
-import com.jo.joauth.service.JoUser;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.converter.HttpMessageConverter;

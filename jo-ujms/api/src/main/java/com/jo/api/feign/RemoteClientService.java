@@ -1,8 +1,8 @@
 package com.jo.api.feign;
 
-import com.jo.common.constant.SecurityConstants;
 import com.jo.api.entity.SysOauthClientDetails;
-import com.jo.common.util.R;
+import com.jo.common.core.constant.SecurityConstants;
+import com.jo.common.core.util.R;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

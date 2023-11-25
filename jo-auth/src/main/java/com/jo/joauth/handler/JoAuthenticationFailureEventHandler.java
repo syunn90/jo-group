@@ -1,11 +1,8 @@
 package com.jo.joauth.handler;
 
 import cn.hutool.core.util.StrUtil;
-import com.jo.common.constant.CommonConstants;
-import com.jo.common.constant.SecurityConstants;
-import com.jo.common.util.MsgUtils;
-import com.jo.common.util.R;
-import com.jo.common.util.SpringContextHolder;
+import com.jo.common.core.constant.SecurityConstants;
+import com.jo.common.core.util.R;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

@@ -2,8 +2,8 @@ package com.jo.api.feign;
 
 import com.jo.api.dto.UserDTO;
 import com.jo.api.dto.UserInfo;
-import com.jo.common.constant.SecurityConstants;
-import com.jo.common.util.R;
+import com.jo.common.core.constant.SecurityConstants;
+import com.jo.common.core.util.R;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.cloud.openfeign.SpringQueryMap;
 import org.springframework.web.bind.annotation.GetMapping;

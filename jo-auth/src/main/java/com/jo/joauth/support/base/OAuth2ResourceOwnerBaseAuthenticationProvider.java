@@ -1,7 +1,7 @@
 package com.jo.joauth.support.base;
 
 import cn.hutool.extra.spring.SpringUtil;
-import com.jo.common.constant.OAuth2ErrorCodesExpand;
+import com.jo.common.core.constant.OAuth2ErrorCodesExpand;
 import com.jo.joauth.exception.ScopeException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

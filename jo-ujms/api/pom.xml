@@ -24,7 +24,12 @@
         </dependency>
         <dependency>
             <groupId>com.jo</groupId>
-            <artifactId>common</artifactId>
+            <artifactId>common-bom</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jo</groupId>
+            <artifactId>common-core</artifactId>
             <version>1.0</version>
         </dependency>
         <!-- web模块-->
