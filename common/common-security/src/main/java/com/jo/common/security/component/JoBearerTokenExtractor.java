@@ -1,4 +1,4 @@
-package com.jo.common.security.compnent;
+package com.jo.common.security.component;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;

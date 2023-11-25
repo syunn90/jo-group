@@ -1,7 +1,7 @@
 package com.jo.common.security.annotation;
 
-import com.jo.common.security.compnent.JoResourceServerAutoConfiguration;
-import com.jo.common.security.compnent.JoResourceServerConfiguration;
+import com.jo.common.security.component.JoResourceServerAutoConfiguration;
+import com.jo.common.security.component.JoResourceServerConfiguration;
 import org.springframework.context.annotation.Import;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 

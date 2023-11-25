@@ -1,4 +1,4 @@
-package com.jo.common.security.compnent;
+package com.jo.common.security.component;
 
 import cn.hutool.core.util.ArrayUtil;
 import lombok.RequiredArgsConstructor;

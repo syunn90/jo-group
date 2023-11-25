@@ -1,4 +1,4 @@
-package com.jo.common.security.compnent;
+package com.jo.common.security.component;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import feign.RequestInterceptor;

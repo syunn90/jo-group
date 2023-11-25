@@ -24,7 +24,7 @@ import static org.springframework.cloud.gateway.support.ServerWebExchangeUtils.a
 public class RequestGlobalFilter implements GlobalFilter, Ordered {
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-        // 1. 清洗请求头中from 参数
+        // 1. 清洗请求头中from 参数，防止内部接口被调用
         ServerHttpRequest request = exchange.getRequest().mutate().headers(httpHeaders -> {
             httpHeaders.remove(SecurityConstants.FROM);
             // 设置请求时间
