@@ -27,10 +27,10 @@ public class CustomeOAuth2TokenCustomizer implements OAuth2TokenCustomizer<OAuth
 			return;
 		}
 
-		JoUser pigUser = (JoUser) context.getPrincipal().getPrincipal();
-		claims.claim(SecurityConstants.DETAILS_USER, pigUser);
-		claims.claim(SecurityConstants.DETAILS_USER_ID, pigUser.getId());
-		claims.claim(SecurityConstants.USERNAME, pigUser.getUsername());
+		JoUser joUser = (JoUser) context.getPrincipal().getPrincipal();
+		claims.claim(SecurityConstants.DETAILS_USER, joUser);
+		claims.claim(SecurityConstants.DETAILS_USER_ID, joUser.getId());
+		claims.claim(SecurityConstants.USERNAME, joUser.getUsername());
 	}
 
 }

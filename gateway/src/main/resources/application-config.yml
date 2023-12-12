@@ -27,4 +27,4 @@ spring:
           uri: lb://biz
           predicates:
             - Path=/biz/**
-      encode-key: 'thanks,pig4cloud'
+      encode-key: 'abcdefgabcabcdef'
