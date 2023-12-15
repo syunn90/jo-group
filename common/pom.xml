@@ -19,6 +19,7 @@
         <module>common-bom</module>
         <module>common-mybatis</module>
         <module>common-security</module>
+        <module>common-http</module>
     </modules>
 
 
