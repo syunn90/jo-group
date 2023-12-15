@@ -23,6 +23,7 @@ spring:
             - Path=/auth/**
           filters:
             - PasswordDecoderFilter
+            - ValidateCodeFilter
         - id: ujms-router
           uri: lb://biz
           predicates:
