@@ -3,25 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>jo-group</artifactId>
+        <artifactId>common</artifactId>
         <groupId>com.jo</groupId>
         <version>1.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
-    <artifactId>common</artifactId>
-    <packaging>pom</packaging>
-    <name>common</name>
-
-
-    <modules>
-        <module>common-core</module>
-        <module>common-bom</module>
-        <module>common-mybatis</module>
-        <module>common-security</module>
-        <module>common-http</module>
-        <module>common-feign</module>
-    </modules>
+    <packaging>jar</packaging>
+    <artifactId>common-feign</artifactId>
 
 
 </project>

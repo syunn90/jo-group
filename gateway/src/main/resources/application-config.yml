@@ -16,6 +16,9 @@ spring:
       username: nacos
       password: nacos
     gateway:
+      httpclient:
+        pool:
+          max-idle-time: 1000
       routes:
         - id: auth-router
           uri: lb://auth
