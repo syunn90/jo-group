@@ -29,3 +29,5 @@ spring:
           predicates:
             - Path=/biz/**
       encode-key: 'abcdefgabcabcdef'
+      ignore-clients:
+        - test

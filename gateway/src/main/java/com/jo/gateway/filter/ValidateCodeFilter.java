@@ -29,7 +29,7 @@ import reactor.core.publisher.Mono;
  */
 @Slf4j
 @RequiredArgsConstructor
-public class ValidateCodeFilter extends AbstractGatewayFilterFactory {
+public class ValidateCodeFilter extends AbstractGatewayFilterFactory<Object> {
 
     private final GatewayConfigProperties gatewayConfig;
     private final ObjectMapper objectMapper;

@@ -51,6 +51,12 @@
             <artifactId>common-core</artifactId>
             <version>1.0</version>
         </dependency>
+        <!--验证码 源码： https://github.com/pig-mesh/easy-captcha -->
+        <dependency>
+            <groupId>com.pig4cloud.plugin</groupId>
+            <artifactId>captcha-spring-boot-starter</artifactId>
+            <version>2.2.3</version>
+        </dependency>
     </dependencies>
 
 </project>
