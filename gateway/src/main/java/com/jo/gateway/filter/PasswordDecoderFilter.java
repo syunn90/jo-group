@@ -42,7 +42,7 @@ import java.util.function.Function;
  */
 @Slf4j
 @RequiredArgsConstructor
-public class PasswordDecoderFilter extends AbstractGatewayFilterFactory {
+public class PasswordDecoderFilter extends AbstractGatewayFilterFactory<Object> {
 
     private static final List<HttpMessageReader<?>> messageReaders = HandlerStrategies.withDefaults().messageReaders();
 
