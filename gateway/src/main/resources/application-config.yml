@@ -6,13 +6,13 @@ spring:
   cloud:
     nacos:
       config:
-        server-addr: 192.168.50.6:8849
+        server-addr: 123.56.160.54:8848
         group: DEFAULT_GROUP
         file-extension: yml
         import-check:
           enabled: false
       discovery:
-        server-addr: 192.168.50.6:8849
+        server-addr: 123.56.160.54:8848
       username: nacos
       password: nacos
     gateway:
