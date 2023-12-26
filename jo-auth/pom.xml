@@ -8,9 +8,9 @@
         <version>1.0</version>
     </parent>
     <packaging>jar</packaging>
-    <artifactId>jo-auth</artifactId>
-    <name>jo-auth</name>
-    <description>jo-auth</description>
+    <artifactId>auth</artifactId>
+    <name>auth</name>
+    <description>auth</description>
 
     <dependencies>
         <!-- web模块-->
