@@ -22,6 +22,13 @@
         <spring-boot.version>2.7.16</spring-boot.version>
         <lombok.verison>1.18.30</lombok.verison>
         <spring.authorization.version>0.4.4</spring.authorization.version>
+
+        <docker.host>http://host:2375</docker.host>
+        <docker.registry>registry.cn-beijing.aliyuncs.com</docker.registry>
+        <docker.namespace>repo</docker.namespace>
+        <docker.username>username</docker.username>
+        <docker.password>password</docker.password>
+        <docker.plugin.version>0.32.0</docker.plugin.version>
     </properties>
 
 
@@ -92,6 +99,33 @@
                             </goals>
                         </execution>
                     </executions>
+                </plugin>
+                <plugin>
+                    <groupId>io.fabric8</groupId>
+                    <artifactId>docker-maven-plugin</artifactId>
+                    <version>${docker.plugin.version}</version>
+                    <configuration>
+                        <!-- Docker Remote Api-->
+                        <dockerHost>${docker.host}</dockerHost>
+                        <!-- Docker 镜像私服-->
+                        <registry>${docker.registry}</registry>
+                        <!-- 认证信息-->
+                        <authConfig>
+                            <push>
+                                <username>${docker.username}</username>
+                                <password>${docker.password}</password>
+                            </push>
+                        </authConfig>
+<!--                        <images>-->
+<!--                            <image>-->
+<!--                                &lt;!&ndash; 镜像名称： 172.17.0.111/library/pig-gateway:2.6.3&ndash;&gt;-->
+<!--                                <name>${docker.registry}/${docker.namespace}/${project.name}:${project.version}</name>-->
+<!--                                <build>-->
+<!--                                    <dockerFile>${project.basedir}/Dockerfile</dockerFile>-->
+<!--                                </build>-->
+<!--                            </image>-->
+<!--                        </images>-->
+                    </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>

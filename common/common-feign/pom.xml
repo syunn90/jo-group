@@ -11,5 +11,25 @@
     <packaging>jar</packaging>
     <artifactId>common-feign</artifactId>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>com.jo</groupId>
+            <artifactId>common-core</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <!--feign 依赖-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+        </dependency>
+        <!--oauth server 依赖-->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+        </dependency>
+    </dependencies>
 </project>
