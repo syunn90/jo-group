@@ -66,8 +66,7 @@ public class HttpClient {
             ((HttpEntityEnclosingRequest) reqBase).setEntity(
                     new StringEntity(String.valueOf(param), ContentType.create("application/json", "UTF-8")));
         }
-
-        //参数时字节流数组
+        //参数是字节流数组
         else if(param instanceof byte[]) {
             reqBase=reqType.getHttpType(url);
             byte[] paramBytes = (byte[])param;
@@ -83,7 +82,6 @@ public class HttpClient {
                 reqBase.setHeader(entry.getKey(), entry.getValue());
             }
         }
-
 
         //响应对象
         CloseableHttpResponse res = null;
