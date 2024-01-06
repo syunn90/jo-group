@@ -1,0 +1,2 @@
+com.jo.common.feign.sentinel.config.SentinelAutoConfiguration
+com.jo.common.feign.sentinel.handle.GlobalBizExceptionHandler

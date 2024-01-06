@@ -1,4 +1,4 @@
-package com.jo.common.feign;
+package com.jo.common.feign.sentinel.handle;
 
 import com.alibaba.csp.sentinel.Tracer;
 import com.jo.common.core.util.R;

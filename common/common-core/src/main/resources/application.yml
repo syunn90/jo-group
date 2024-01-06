@@ -11,13 +11,21 @@ spring:
     database: 3
   profiles:
     include: config
+  cloud:
+    sentinel:
+      transport:
+        dashboard: localhost:8089
+# feign 配置
+feign:
+  sentinel:
+    enabled: true
 
 mybatis-plus:
   mapper-locations: classpath*:/mapper/**/*Mapper.xml
   configuration:
     cache-enabled: false
     jdbc-type-for-null: 'null'
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     map-underscore-to-camel-case: true
   global-config:
     db-config:
@@ -28,3 +36,6 @@ mybatis-plus:
       insert-strategy: not_empty
       update-strategy: not_empty
   type-handlers-package: 'com.jo.common.mybatis.handler'
+
+
+  # java -Dserver.port=8089 -Dcsp.sentinel.dashboard.server=localhost:8089 -Dproject.name=sentinel-dashboard -jar sentinel-dashboard-1.8.7.jar
