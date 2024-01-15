@@ -3,8 +3,6 @@ package com.jo.biz.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.jo.api.entity.SysRole;
 
-import java.util.List;
-
 /**
  * <p>
  * 服务类
@@ -19,7 +17,7 @@ public interface SysRoleService extends IService<SysRole> {
 	 * @param userId
 	 * @return
 	 */
-	List<SysRole> findRolesByUserId(Long userId);
+	SysRole findRolesByUserId(Long userId);
 //
 //	/**
 //	 * 根据角色ID 查询角色列表

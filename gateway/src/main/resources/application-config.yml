@@ -20,13 +20,22 @@ spring:
         pool:
           max-idle-time: 1000
       routes:
-        - id: auth-router
+        - id: auth-router-login
           uri: lb://auth
           predicates:
-            - Path=/auth/**
+            - Path=/auth/oauth2/token
           filters:
+            - AddRequestHeader=Authorization, Basic Y2xpZW50OjEyMzQ=
             - PasswordDecoderFilter
             - ValidateCodeFilter
+#            - AddRequestParameter=client_id, client
+#            - AddRequestParameter=client_secret, 1234
+#            - AddRequestHeader=Authorization, Basic Y2xpZW50OjEyMzQ=
+#            - RewritePath=/auth/login(?<segment>.*), /auth/oauth2/token$\{segment}
+        - id: auth-router-logout
+          uri: lb://auth
+          predicates:
+            - Path=/auth/token/logout
         - id: ujms-router
           uri: lb://biz
           predicates:

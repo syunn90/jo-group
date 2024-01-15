@@ -4,8 +4,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.jo.api.entity.SysRole;
 import org.apache.ibatis.annotations.Mapper;
 
-import java.util.List;
-
 /**
  * <p>
  * Mapper 接口
@@ -22,6 +20,6 @@ public interface SysRoleMapper extends BaseMapper<SysRole> {
 	 * @param userId
 	 * @return
 	 */
-	List<SysRole> listRolesByUserId(Long userId);
+	SysRole listRolesByUserId(Long userId);
 
 }

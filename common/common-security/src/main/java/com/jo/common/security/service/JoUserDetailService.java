@@ -53,9 +53,12 @@ public interface JoUserDetailService extends UserDetailsService, Ordered {
         Set<String> dbAuthSet = new HashSet<>();
         if (ArrayUtil.isNotEmpty(info.getRoles())){
             // 获取角色
-            Arrays.stream(info.getRoles()).forEach(role -> dbAuthSet.add(SecurityConstants.ROLE + role));
+//            Arrays.stream(info.getRoles()).forEach(role -> dbAuthSet.add(SecurityConstants.ROLE + role));
+
+            dbAuthSet.add(SecurityConstants.ROLE + info.getRoles().getRole());
+            dbAuthSet.addAll(Arrays.asList(info.getRoles().getPermissions()));
             // 获取资源
-            dbAuthSet.addAll(Arrays.asList(info.getPermissions()));
+//            dbAuthSet.addAll(Arrays.asList(info.getPermissions()));
         }
 
         List<GrantedAuthority> authorityList = AuthorityUtils.createAuthorityList(dbAuthSet.toArray(new String[0]));
