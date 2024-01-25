@@ -4,6 +4,8 @@ import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.jo.api.entity.SysUser;
 import com.jo.biz.service.SysUserService;
+import com.jo.common.core.exception.ErrorCodes;
+import com.jo.common.core.util.MsgUtils;
 import com.jo.common.core.util.R;
 import com.jo.common.security.annotation.Inner;
 import com.jo.common.security.util.SecurityUtils;
@@ -43,8 +45,8 @@ public class SysUserController {
                 .eq(StrUtil.isNotBlank(username), SysUser::getUsername, username)
                 .eq(StrUtil.isNotBlank(phone), SysUser::getPhone, phone));
         if (user == null) {
-//            return R.failed(MsgUtils.getMessage(ErrorCodes.SYS_USER_USERINFO_EMPTY, username));
-            return R.failed("Failed", username);
+            return R.failed(MsgUtils.getMessage(ErrorCodes.SYS_USER_USERINFO_EMPTY, username));
+//            return R.failed("Failed", username);
         }
         return R.ok(userService.findUserInfo(user));
     }

@@ -10,19 +10,19 @@
     <packaging>pom</packaging>
 
     <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <mybatis-plus.version>3.5.3.2</mybatis-plus.version>
         <spring.cloud.version>2021.0.8</spring.cloud.version>
         <spring.alibaba.cloud.version>2021.0.5.0</spring.alibaba.cloud.version>
         <swagger.version>2.1.2</swagger.version>
         <jakarta.validation.version>2.0.2</jakarta.validation.version>
-        <hutools.version>5.8.24</hutools.version>
+        <hutools.version>5.8.25</hutools.version>
         <jackson-annotations.version>2.13.5</jackson-annotations.version>
         <spring-boot.version>2.7.16</spring-boot.version>
         <lombok.verison>1.18.30</lombok.verison>
         <spring.authorization.version>0.4.4</spring.authorization.version>
-
+        <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
         <docker.host>http://host:2375</docker.host>
         <docker.registry>registry.cn-beijing.aliyuncs.com</docker.registry>
         <docker.namespace>repo</docker.namespace>
@@ -134,5 +134,18 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <debug>false</debug>
+                    <compilerArgs>
+                        <arg>-parameters</arg>
+                    </compilerArgs>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 </project>

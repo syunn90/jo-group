@@ -28,9 +28,6 @@ spring:
             - AddRequestHeader=Authorization, Basic Y2xpZW50OjEyMzQ=
             - PasswordDecoderFilter
             - ValidateCodeFilter
-#            - AddRequestParameter=client_id, client
-#            - AddRequestParameter=client_secret, 1234
-#            - AddRequestHeader=Authorization, Basic Y2xpZW50OjEyMzQ=
 #            - RewritePath=/auth/login(?<segment>.*), /auth/oauth2/token$\{segment}
         - id: auth-router-logout
           uri: lb://auth

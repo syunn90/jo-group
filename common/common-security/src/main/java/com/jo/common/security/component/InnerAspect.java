@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.nio.file.AccessDeniedException;
 
 /**
+ * 服务调用不鉴权切面
  * @author xtc
  * @date 2023/11/25
  */
