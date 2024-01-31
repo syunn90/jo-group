@@ -1,9 +1,12 @@
 package com.jo.biz.service;
 
+import cn.hutool.core.lang.tree.Tree;
+import cn.hutool.core.lang.tree.TreeNode;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.jo.api.entity.SysMenu;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * <p>
@@ -21,6 +24,7 @@ public interface SysMenuService extends IService<SysMenu> {
 	 * @return 菜单列表
 	 */
 	List<SysMenu> findMenuByRoleId(Long roleId);
+
 //
 //	/**
 //	 * 级联删除菜单
@@ -44,12 +48,13 @@ public interface SysMenuService extends IService<SysMenu> {
 //	 */
 //	List<Tree<Long>> treeMenu(Long parentId, String menuName, String type);
 //
-//	/**
-//	 * 查询菜单
-//	 * @param voSet
-//	 * @param parentId
-//	 * @return
-//	 */
-//	List<Tree<Long>> filterMenu(Set<SysMenu> voSet, String type, Long parentId);
+	/**
+	 * 查询菜单
+	 * @param voSet
+	 * @param parentId
+	 * @return
+	 */
+	List<Tree<Long>> treeMenu(Set<SysMenu> voSet, String type, Long parentId);
 
+	List<TreeNode<Long>> listMenu(Set<SysMenu> all, String type, Long parentId);
 }

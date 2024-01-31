@@ -1,1 +1,2 @@
 com.jo.common.security.component.InnerAspect
+com.jo.common.security.component.JoSecurityMessageSourceConfiguration
