@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashSet;
-import java.util.Set;
 
 /**
  * @author xtc
@@ -36,7 +35,7 @@ public class SysMenuController {
     @GetMapping("/tree")
     public R getMenuTree(String type, Long parentId) {
         // 获取符合条件的菜单
-        Set<SysMenu> all = new HashSet<>();
+        var all = new HashSet<SysMenu>();
         SecurityUtils.getRoles().forEach(roleId -> all.addAll(sysMenuService.findMenuByRoleId(roleId)));
         return R.ok(sysMenuService.treeMenu(all, type, parentId));
     }
@@ -50,7 +49,7 @@ public class SysMenuController {
     @GetMapping("/list")
     public R getMenuList(String type, Long parentId) {
         // 获取符合条件的菜单
-        Set<SysMenu> all = new HashSet<>();
+        var all = new HashSet<SysMenu>();
         SecurityUtils.getRoles().forEach(roleId -> all.addAll(sysMenuService.findMenuByRoleId(roleId)));
         return R.ok(sysMenuService.listMenu(all, type, parentId));
     }

@@ -15,7 +15,6 @@ import org.springframework.stereotype.Service;
 import javax.validation.constraints.NotNull;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -41,7 +40,7 @@ public class SysMenuServiceImpl  extends ServiceImpl<SysMenuMapper, SysMenu> imp
      */
     @Override
     public List<Tree<Long>> treeMenu(Set<SysMenu> all, String type, Long parentId) {
-        List<TreeNode<Long>> collect = all.stream()
+        var collect = all.stream()
                 .filter(menuTypePredicate(type))
                 .map(getNodeFunction())
                 .collect(Collectors.toList());
@@ -73,14 +72,14 @@ public class SysMenuServiceImpl  extends ServiceImpl<SysMenuMapper, SysMenu> imp
             node.setParentId(menu.getParentId());
             node.setWeight(menu.getSortOrder());
             // 扩展属性
-            Map<String, Object> extra = new HashMap<>();
+            var extra = new HashMap<String,Object>();
             extra.put("path", menu.getPath());
             extra.put("menuType", menu.getMenuType());
             extra.put("permission", menu.getPermission());
             extra.put("sortOrder", menu.getSortOrder());
-
+            extra.put("component", menu.getComponent());
             // 适配 vue3
-            Map<String, Object> meta = new HashMap<>();
+            var meta = new HashMap<String,Object>();
             meta.put("title", menu.getName());
             meta.put("isLink", menu.getPath() != null && menu.getPath().startsWith("http") ? menu.getPath() : "");
             meta.put("isHide", !BooleanUtil.toBooleanObject(menu.getVisible()));

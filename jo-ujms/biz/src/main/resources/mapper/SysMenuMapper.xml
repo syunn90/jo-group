@@ -19,6 +19,7 @@
 		<result column="del_flag" property="delFlag"/>
 		<result column="embedded" property="embedded"/>
 		<result column="visible" property="visible"/>
+		<result column="component" property="component"/>
 	</resultMap>
 
 	<!--通过角色查询菜单信息-->
@@ -37,7 +38,8 @@
 			   sys_menu.update_time,
 			   sys_menu.del_flag,
 			   sys_menu.embedded,
-			   sys_menu.visible
+			   sys_menu.visible,
+			   sys_menu.component
 		FROM sys_menu
 					 LEFT JOIN sys_role_menu ON sys_menu.menu_id = sys_role_menu.menu_id
 		WHERE sys_menu.del_flag = '0'
