@@ -21,6 +21,8 @@
         <module>common-security</module>
         <module>common-http</module>
         <module>common-feign</module>
+        <module>common-algorithm</module>
+        <module>common-poi</module>
     </modules>
 
 
