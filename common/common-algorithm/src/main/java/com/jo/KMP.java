@@ -40,6 +40,9 @@ public class KMP {
 
         int[] next = new int[t.length];
         next[0] = -1;
+        if (next.length == 1) {
+            return next;
+        }
         next[1] = 0;
         int k;
         for (int j = 2; j < t.length; j++) {
