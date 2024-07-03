@@ -23,6 +23,7 @@
         <module>common-feign</module>
         <module>common-algorithm</module>
         <module>common-poi</module>
+        <module>common-longlink</module>
     </modules>
 
 
