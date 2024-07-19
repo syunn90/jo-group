@@ -19,3 +19,6 @@ spring:
 logging:
   level:
     org.springframework.security: TRACE
+rpc:
+  server:
+    port: 9956

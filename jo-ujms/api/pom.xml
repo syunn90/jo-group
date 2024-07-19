@@ -38,5 +38,10 @@
             <artifactId>spring-boot-starter-web</artifactId>
             <version>${spring-boot.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.jo</groupId>
+            <artifactId>common-rpc-core</artifactId>
+            <version>1.0</version>
+        </dependency>
     </dependencies>
 </project>

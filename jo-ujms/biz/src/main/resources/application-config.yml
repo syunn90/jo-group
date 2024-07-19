@@ -15,3 +15,6 @@ spring:
         server-addr: 192.168.50.6:8849
       username: nacos
       password: nacos
+rpc:
+  server:
+    port: 9957

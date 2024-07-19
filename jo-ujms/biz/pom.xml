@@ -61,6 +61,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webflux</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.jo</groupId>
+            <artifactId>common-rpc-starter</artifactId>
+            <version>1.0</version>
+        </dependency>
 <!--        <dependency>-->
 <!--            <groupId>com.jo</groupId>-->
 <!--            <artifactId>common-longlink</artifactId>-->

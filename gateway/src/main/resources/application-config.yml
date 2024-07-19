@@ -6,13 +6,13 @@ spring:
   cloud:
     nacos:
       config:
-        server-addr: 124.235.248.71:8848
+        server-addr: 192.168.50.6:8849
         group: DEFAULT_GROUP
         file-extension: yml
         import-check:
           enabled: false
       discovery:
-        server-addr: 124.235.248.71:8848
+        server-addr: 192.168.50.6:8849
       username: nacos
       password: nacos
     gateway:
@@ -29,6 +29,10 @@ spring:
             - PasswordDecoderFilter
             - ValidateCodeFilter
 #            - RewritePath=/auth/login(?<segment>.*), /auth/oauth2/token$\{segment}
+        - id: auth-router-test
+          uri: lb://auth
+          predicates:
+            - Path=/auth/**
         - id: auth-router-logout
           uri: lb://auth
           predicates:

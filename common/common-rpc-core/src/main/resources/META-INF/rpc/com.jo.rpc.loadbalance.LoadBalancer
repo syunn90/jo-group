@@ -1,0 +1,3 @@
+RANDOM=com.jo.rpc.loadbalance.impl.RandomLoadBalancer#
+ROUND=com.jo.rpc.loadbalance.impl.RoundLoadBalancer#
+CONSISTENT_HASH=com.jo.rpc.loadbalance.impl.ConsistentHashLoadBalancer

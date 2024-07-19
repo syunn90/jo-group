@@ -24,6 +24,10 @@
         <module>common-algorithm</module>
         <module>common-poi</module>
         <module>longlink</module>
+        <module>common-rpc-core</module>
+        <module>common-rpc-comm</module>
+        <module>common-rpc-support</module>
+        <module>common-rpc-starter</module>
     </modules>
 
 
