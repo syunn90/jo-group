@@ -66,6 +66,11 @@
             <artifactId>common-rpc-starter</artifactId>
             <version>1.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.jo</groupId>
+            <artifactId>common-nacos</artifactId>
+            <version>1.0</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>

@@ -28,6 +28,7 @@
         <module>common-rpc-comm</module>
         <module>common-rpc-support</module>
         <module>common-rpc-starter</module>
+        <module>common-nacos</module>
     </modules>
 
 

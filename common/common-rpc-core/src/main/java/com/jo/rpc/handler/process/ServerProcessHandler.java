@@ -20,9 +20,9 @@ import static com.jo.rpc.connection.Connection.CONN;
  */
 public class ServerProcessHandler extends AbstractProcessHandler {
 
-    private RpcServerConfig config;
-    private DuplicatedMarker duplicatedMarker;
-    private ExecutorService businessExecutor;
+    private final RpcServerConfig config;
+    private final DuplicatedMarker duplicatedMarker;
+    private final ExecutorService businessExecutor;
 
     public ServerProcessHandler(INodeManager nodeManager, DuplicatedMarker duplicatedMarker,
                                 RpcServerConfig config, ExecutorService businessExecutor) {

@@ -19,7 +19,7 @@ public class TestRpc  {
 
     @GetMapping("/test")
     public void onApplicationEvent() {
-        System.out.println("authHeader");
+
         testService.testRpc();
 
     }

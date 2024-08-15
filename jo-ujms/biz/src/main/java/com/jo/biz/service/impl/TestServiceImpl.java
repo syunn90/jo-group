@@ -11,7 +11,8 @@ import com.jo.rpc.comm.annotation.RpcRoute;
 public class TestServiceImpl implements TestService {
 
     @Override
-    public void testRpc() {
+    public String testRpc() {
         System.out.println("rpc-----------");
+        return "this is rpc";
     }
 }

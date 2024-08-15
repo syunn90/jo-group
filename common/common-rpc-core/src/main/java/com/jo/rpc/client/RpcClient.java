@@ -64,7 +64,6 @@ public class RpcClient extends AbstractRpc implements Client {
     private RpcClientConfig config;
     private AtomicBoolean isClientStart = new AtomicBoolean(false);
     private INodeManager nodeManager;
-    private Integer port;
     private ResponseMapping responseMapping;
     private final Bootstrap bootstrap = new Bootstrap();
     private EventLoopGroup eventLoopGroupSelector;
