@@ -26,6 +26,9 @@ import java.util.Objects;
 @SuppressWarnings("unused")
 public class EasyExcelUtil {
 
+
+    private static final String CONTENT_TYPE = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+    private static final String CONTENT_DISPOSITION = "Content-disposition";
     /**
      * 导出Excel 多sheet
      * @param data 数据
@@ -125,10 +128,10 @@ public class EasyExcelUtil {
      * @throws UnsupportedEncodingException 不支持编码异常
      */
     private static void setExcelResponseProp(HttpServletResponse response, String rawFileName) throws UnsupportedEncodingException {
-        response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+        response.setContentType(CONTENT_TYPE);
         response.setCharacterEncoding(StandardCharsets.UTF_8.name());
         String fileName = URLEncoder.encode(rawFileName, StandardCharsets.UTF_8).replaceAll("\\+", "%20");
-        response.setHeader("Content-disposition", "attachment;filename*=utf-8''" + fileName + ".xlsx");
+        response.setHeader(CONTENT_DISPOSITION, "attachment;filename*=utf-8''" + fileName + ".xlsx");
     }
 
 
