@@ -29,6 +29,7 @@
         <module>common-rpc-support</module>
         <module>common-rpc-starter</module>
         <module>common-nacos</module>
+        <module>common-captcha</module>
     </modules>
 
 
