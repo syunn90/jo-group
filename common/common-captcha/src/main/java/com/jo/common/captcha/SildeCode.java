@@ -10,10 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.interactions.PointerInput;
 
-import javax.imageio.ImageIO;
-import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -65,45 +62,45 @@ public class SildeCode {
     }
 
 
-    public int getGap(File baseImage,File silderImage) throws Exception {
-        imgBase = ImageIO.read(baseImage);
-        imgSilder = ImageIO.read(silderImage);
-        int width = imgBase.getWidth();
-        int height = imgBase.getHeight();
-        int pos = 60;
-        // 横向扫描
-        for (int i = pos; i < width; i++) {
-            for (int j = 0; j < height; j++) {
-                if (!equalPixel(i, j)) {
-                    pos = i;
-                    return pos;
-                }
-            }
-        }
-        throw new Exception("未找到滑块缺口");
-    }
-    /**
-     * 比较两张截图上的当前像素点的RGB值是否相同
-     * 只要满足一定误差阈值，便可认为这两个像素点是相同的
-     *
-     * @param x 像素点的x坐标
-     * @param y 像素点的y坐标
-     * @return true/false
-     */
-    public boolean equalPixel(int x, int y) {
-        int rgbaBase = imgBase.getRGB(x, y);
-        int rgbaSilder = imgSilder.getRGB(x, y);
-        // 转化成RGB集合
-        Color colBase = new Color(rgbaBase, true);
-        Color colSilder = new Color(rgbaSilder, true);
-        int threshold = 80;   // RGB差值阈值
-        if (Math.abs(colBase.getRed() - colSilder.getRed()) < threshold &&
-                Math.abs(colBase.getGreen() - colSilder.getGreen()) < threshold &&
-                Math.abs(colBase.getBlue() - colSilder.getBlue()) < threshold) {
-            return true;
-        }
-        return false;
-    }
+//    public int getGap(File baseImage,File silderImage) throws Exception {
+//        imgBase = ImageIO.read(baseImage);
+//        imgSilder = ImageIO.read(silderImage);
+//        int width = imgBase.getWidth();
+//        int height = imgBase.getHeight();
+//        int pos = 60;
+//        // 横向扫描
+//        for (int i = pos; i < width; i++) {
+//            for (int j = 0; j < height; j++) {
+//                if (!equalPixel(i, j)) {
+//                    pos = i;
+//                    return pos;
+//                }
+//            }
+//        }
+//        throw new Exception("未找到滑块缺口");
+//    }
+//    /**
+//     * 比较两张截图上的当前像素点的RGB值是否相同
+//     * 只要满足一定误差阈值，便可认为这两个像素点是相同的
+//     *
+//     * @param x 像素点的x坐标
+//     * @param y 像素点的y坐标
+//     * @return true/false
+//     */
+//    public boolean equalPixel(int x, int y) {
+//        int rgbaBase = imgBase.getRGB(x, y);
+//        int rgbaSilder = imgSilder.getRGB(x, y);
+//        // 转化成RGB集合
+//        Color colBase = new Color(rgbaBase, true);
+//        Color colSilder = new Color(rgbaSilder, true);
+//        int threshold = 80;   // RGB差值阈值
+//        if (Math.abs(colBase.getRed() - colSilder.getRed()) < threshold &&
+//                Math.abs(colBase.getGreen() - colSilder.getGreen()) < threshold &&
+//                Math.abs(colBase.getBlue() - colSilder.getBlue()) < threshold) {
+//            return true;
+//        }
+//        return false;
+//    }
 
     /**
      * 计算滑块到达目标点的运行轨迹
